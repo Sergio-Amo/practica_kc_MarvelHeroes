@@ -95,8 +95,10 @@
 		27DC88852B07E0BD0082F307 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				27DC88B92B07E19A0082F307 /* Presentation */,
+				27DC88B42B07E17D0082F307 /* Domain */,
+				27DC88B12B07E16B0082F307 /* Data */,
 				27DC88862B07E0BD0082F307 /* MarvelHeroesApp.swift */,
-				27DC88882B07E0BD0082F307 /* ContentView.swift */,
 				27DC888A2B07E0BF0082F307 /* Assets.xcassets */,
 				27DC888C2B07E0BF0082F307 /* MarvelHeroes.entitlements */,
 				27DC888D2B07E0BF0082F307 /* Preview Content */,
@@ -127,6 +129,92 @@
 				27DC88A42B07E0BF0082F307 /* MarvelHeroesUITestsLaunchTests.swift */,
 			);
 			path = MarvelHeroesUITests;
+			sourceTree = "<group>";
+		};
+		27DC88B12B07E16B0082F307 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				27DC88B32B07E1760082F307 /* Local */,
+				27DC88B22B07E1700082F307 /* Network */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		27DC88B22B07E1700082F307 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		27DC88B32B07E1760082F307 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		27DC88B42B07E17D0082F307 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				27DC88B82B07E1950082F307 /* Extensions */,
+				27DC88B72B07E18F0082F307 /* UseCases */,
+				27DC88B62B07E1890082F307 /* Models */,
+				27DC88B52B07E1830082F307 /* Protocols */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		27DC88B52B07E1830082F307 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		27DC88B62B07E1890082F307 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		27DC88B72B07E18F0082F307 /* UseCases */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCases;
+			sourceTree = "<group>";
+		};
+		27DC88B82B07E1950082F307 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		27DC88B92B07E19A0082F307 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				27DC88BB2B07E1A90082F307 /* View */,
+				27DC88BA2B07E1A20082F307 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		27DC88BA2B07E1A20082F307 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		27DC88BB2B07E1A90082F307 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27DC88882B07E0BD0082F307 /* ContentView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
