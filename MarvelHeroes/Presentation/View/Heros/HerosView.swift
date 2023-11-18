@@ -24,6 +24,26 @@ struct HerosView: View {
                         }
                     }
                 }
+                
+                
+                
+                if let marvel = rootViewModel.marvel,
+                   let total = marvel.data?.total,
+                   let offset = marvel.data?.offset,
+                   let count = marvel.data?.count,
+                   total > offset + count {
+                    
+                    HStack {
+                        Spacer()
+                        Button(action: {
+                            rootViewModel.getHeroes(offset: offset + 100)
+                        }, label: {
+                            Text("Next page >")
+                        })
+                    }
+                    
+                }
+
             }
             .frame( maxWidth: .infinity)
             .listStyle(GroupedListStyle())
