@@ -19,9 +19,10 @@ struct Network {
         return "apikey="+ApiKeys.publicKey.rawValue+"&ts="+ts+"&hash="+hash
     }
 
-    func getCharactersRequest() -> URLRequest {
+    func getCharactersRequest(offset: Int = 0) -> URLRequest {
+        let offset = "&offset=\(offset)"
         // BaseURL + Endpoint + Limit + Auth
-        let urlCad = NetworkConstants.baseUrl.rawValue+NetworkConstants.charactersEndPoint.rawValue+urlParams.limit.rawValue+"&"+authenticationParams
+        let urlCad = NetworkConstants.baseUrl.rawValue+NetworkConstants.charactersEndPoint.rawValue+urlParams.limit.rawValue+offset+"&"+authenticationParams
         var request: URLRequest = URLRequest(url: URL(string: urlCad)!)
         request.httpMethod = HTTPMethods.get
         request.addValue(HTTPMethods.content, forHTTPHeaderField: "Content-type")

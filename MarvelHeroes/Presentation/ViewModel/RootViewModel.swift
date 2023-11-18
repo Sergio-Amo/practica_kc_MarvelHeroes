@@ -14,11 +14,11 @@ final class RootViewModel: ObservableObject {
     
     var suscriptors = Set<AnyCancellable>()
     
-    func getHeroes() {
+    func getHeroes(offset: Int) {
         status = .loading
         
         URLSession.shared
-            .dataTaskPublisher(for: Network().getCharactersRequest())
+            .dataTaskPublisher(for: Network().getCharactersRequest(offset: offset))
             .tryMap {
                 guard $0.response.getStatusCode() == 200 else {
                     throw URLError(.badServerResponse)
