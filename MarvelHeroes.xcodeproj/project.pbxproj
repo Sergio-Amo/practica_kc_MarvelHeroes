@@ -138,6 +138,7 @@
 		27DC88852B07E0BD0082F307 /* MarvelHeroes */ = {
 			isa = PBXGroup;
 			children = (
+				27DC88C92B07F5E70082F307 /* ApiKeys.swift */,
 				27DC88B92B07E19A0082F307 /* Presentation */,
 				27DC88B42B07E17D0082F307 /* Domain */,
 				27DC88B12B07E16B0082F307 /* Data */,
@@ -145,7 +146,6 @@
 				27DC888A2B07E0BF0082F307 /* Assets.xcassets */,
 				27DC888C2B07E0BF0082F307 /* MarvelHeroes.entitlements */,
 				27DC888D2B07E0BF0082F307 /* Preview Content */,
-				27DC88C92B07F5E70082F307 /* ApiKeys.swift */,
 			);
 			path = MarvelHeroes;
 			sourceTree = "<group>";

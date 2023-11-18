@@ -17,6 +17,7 @@ struct ErrorView: View {
     }
     
     var body: some View {
+        Spacer()
         VStack(spacing: 32) {
             Image(systemName: "exclamationmark.triangle")
                 .resizable()
@@ -34,25 +35,24 @@ struct ErrorView: View {
                 .bold()
                 .font(.subheadline)
                 .padding()
-            
-            Spacer()
-            VStack {
-                Button(action: {
-                    rootViewModel.status = .none
-                }, label: {
-                    Text("Reload App")
-                        .font(.title2)
-                        .padding()
-                        .frame(width: 300, height: 50)
-                        .foregroundStyle(.white)
-                        .background(.blue)
-                        .cornerRadius(15)
-                        .shadow(radius: 10, x: 12, y: 10)
-                        
-                })
-            }
-            .padding()
         }
+        Spacer()
+        VStack {
+            Button(action: {
+                rootViewModel.status = .none
+            }, label: {
+                Text("Reload App")
+                    .font(.title2)
+                    .padding()
+                    .frame(width: 300, height: 50)
+                    .foregroundStyle(.white)
+                    .background(.blue)
+                    .cornerRadius(15)
+                    .shadow(radius: 10, x: 12, y: 10)
+                    
+            })
+        }
+        .padding()
     }
 }
 
