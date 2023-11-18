@@ -5,14 +5,15 @@
 //  Created by Sergio Amo on 18/11/23.
 //
 
-import SwiftUI
-
-struct Extension_URL: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+import Foundation
+// Upgrades URL Scheme to https
+extension URL {
+    func upgradeUrlScheme (_ url: URL) -> URL {
+        var urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: true)
+        urlComponents?.scheme = "https"
+        guard let finalUrl = urlComponents?.url else {
+            return url
+        }
+        return finalUrl
     }
-}
-
-#Preview {
-    Extension_URL()
 }

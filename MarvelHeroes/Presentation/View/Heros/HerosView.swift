@@ -19,13 +19,14 @@ struct HerosView: View {
                         NavigationLink {
                             //destination
                         } label: {
-                            //CustomViewCell
                             HerosRowView(hero: hero)
-                                .frame(height: 200)
+                                .frame(height: 256)
                         }
                     }
                 }
             }
+            .frame( maxWidth: .infinity)
+            .listStyle(GroupedListStyle())
         }
     }
 }

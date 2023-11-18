@@ -14,6 +14,14 @@ final class RootViewModel: ObservableObject {
     
     var suscriptors = Set<AnyCancellable>()
     
+    init(debug: Bool = false) {
+        if debug {
+            getHerosTesting()
+        } else {
+            getHeroes(offset: 0)
+        }
+    }
+    
     func getHeroes(offset: Int) {
         status = .loading
         

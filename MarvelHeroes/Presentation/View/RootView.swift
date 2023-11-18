@@ -15,7 +15,7 @@ struct RootView: View {
         switch rootViewModel.status {
             case .none:
                 withAnimation {
-                    ContentView()
+                    HerosView()
                 }
             case .loading:
                 withAnimation {
@@ -23,7 +23,7 @@ struct RootView: View {
                 }
             case .loaded:
                 withAnimation {
-                    Text("HeroList")
+                    HerosView()
                 }
             case .hero:
                 withAnimation {

@@ -15,19 +15,19 @@ struct Marvel: Codable {
         attributionText, // (**not needed**)
         attributionHTML: String // (**not needed**)*/
     //let etag: String  // (**not needed**)
-    let data: DataClass
+    let data: DataClass?
 }
 
 // MARK: - DataClass
 struct DataClass: Codable {
-    let total: Int
+    let total: Int?
     let offset,
-        count: Int
+        count: Int?
     /*let offset, // From where heroes have been requested  // (**not needed**)
         limit,  // How many heroes have been requested  // (**not needed**)
         total,  // Total heroes in the marvel DB
         count: Int // Count of heroes returned  // (**not needed**)*/
-    let results: [Hero] // This is not always hero.. when returning comics it's [Comic] // Remove
+    let results: [Hero]? // This is not always hero.. when returning comics it's [Comic] // Remove
 }
 
 

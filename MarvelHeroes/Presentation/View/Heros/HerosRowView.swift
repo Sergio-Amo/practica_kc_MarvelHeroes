@@ -15,8 +15,7 @@ struct HerosRowView: View {
     
     var body: some View {
         ZStack {
-            //Text(hero.name ?? "")
-            
+
             if let url = hero.thumbnail?.thumbnailFullPath {
                 let thumbnailUrl = url.upgradeUrlScheme(url)
                 WebImage(url: thumbnailUrl)
@@ -24,6 +23,7 @@ struct HerosRowView: View {
                     .placeholder(Image(systemName: "photo")) // Placeholder Image
                     .indicator(.progress) // Activity Indicator
                     .transition(.fade(duration: 0.5)) // Fade Transition with duration
+                    .cornerRadius(15)
             }
             VStack{
                 HStack{
@@ -33,11 +33,11 @@ struct HerosRowView: View {
                         .bold()
                         .padding()
                         .background(.white)
+                        .cornerRadius(8)
                 }
                 .padding()
                 Spacer()
             }
-                
         }
     }
 }

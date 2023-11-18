@@ -16,7 +16,7 @@ struct ContentView: View {
                 .foregroundStyle(.tint)
             Text("Hello, world!")
             Button(action: {
-                rootViewModel.getHeroes()
+                rootViewModel.getHeroes(offset: 0)
             }, label: {
                 Text("Test")
             })

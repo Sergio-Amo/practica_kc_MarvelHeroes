@@ -35,12 +35,12 @@ struct Thumbnail: Codable {
         case path
         case thumbnailExtension = "extension"
     }
-    var thumbnailFullPath: String {
+    var thumbnailFullPath: URL? {
         guard let path,
               let thumbnailExtension else {
-            return ""
+            return nil
         }
-        return "\(path).\(thumbnailExtension)"
+        return URL(string: "\(path).\(thumbnailExtension)")
     }
 
 }
