@@ -4,7 +4,7 @@
 //
 //  Created by Sergio Amo on 17/11/23.
 //
-
+/*
 import SwiftUI
 
 struct ContentView: View {
@@ -29,3 +29,4 @@ struct ContentView: View {
     ContentView()
         .environmentObject(RootViewModel())
 }
+*/

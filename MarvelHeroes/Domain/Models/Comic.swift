@@ -4,7 +4,7 @@
 //
 //  Created by Sergio Amo on 17/11/23.
 //
-
+/*
 import Foundation
 
 // MARK: - Result
@@ -95,4 +95,5 @@ struct Result: Codable {
 /*enum Format: String, Codable {
     case comic = "Comic"
 }
+*/
 */

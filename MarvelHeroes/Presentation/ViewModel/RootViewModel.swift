@@ -10,7 +10,7 @@ import Combine
 
 final class RootViewModel: ObservableObject {
     @Published var status =  Status.none
-    @Published var marvel: Marvel?
+    @Published var marvel: MarvelHeros?
     
     var suscriptors = Set<AnyCancellable>()
     
@@ -33,7 +33,7 @@ final class RootViewModel: ObservableObject {
                 }
                 return $0.data
             }
-            .decode(type: Marvel.self, decoder: JSONDecoder())
+            .decode(type: MarvelHeros.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
@@ -57,7 +57,7 @@ final class RootViewModel: ObservableObject {
         self.status = .loaded
     }
     
-    func getHerosDesign() -> Marvel {
+    func getHerosDesign() -> MarvelHeros {
         let heroes = [
             Hero(id: 1, name: "Foo", description: "LoremIpsum", 
                  thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: "jpg")),
@@ -68,7 +68,7 @@ final class RootViewModel: ObservableObject {
             Hero(id: 4, name: "FooBar", description: "LoremIpsum",
                  thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg"))
         ]
-        return Marvel(code: 200, data: DataClass(total: 4, offset: 0, count: 4, results: heroes))
+        return MarvelHeros(code: 200, data: DataClass(total: 4, offset: 0, count: 4, results: heroes))
     }
 }
 

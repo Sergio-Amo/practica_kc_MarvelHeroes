@@ -4,7 +4,7 @@
 //
 //  Created by Sergio Amo on 17/11/23.
 //
-
+/*
 import Foundation
 
 // MARK: - TYPEALIAS
@@ -56,3 +56,4 @@ enum URLType: String, Codable {  // (**not needed**)
     case detail = "detail"
     case wiki = "wiki"
 }*/
+*/

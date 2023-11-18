@@ -4,7 +4,7 @@
 //
 //  Created by Sergio Amo on 17/11/23.
 //
-
+/*
 import Foundation
 
 // MARK: - Marvel
@@ -30,4 +30,4 @@ struct DataClass: Codable {
     let results: [Hero]? // This is not always hero.. when returning comics it's [Comic] // Remove
 }
 
-
+*/
