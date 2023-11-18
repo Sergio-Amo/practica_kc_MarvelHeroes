@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct HTTPMethods {
+    static let get = "GET"
+    
+    static let content = "application/json"
+}

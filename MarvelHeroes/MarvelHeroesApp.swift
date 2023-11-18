@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct MarvelHeroesApp: App {
+    
+    @StateObject var rootViewModel = RootViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            //ContentView()
+            RootView()
+                .environmentObject(rootViewModel)
         }
     }
 }

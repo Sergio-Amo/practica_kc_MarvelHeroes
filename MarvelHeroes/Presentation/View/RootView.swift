@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct RootView: View {
+    @EnvironmentObject var rootViewModel: RootViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        switch rootViewModel.status {
+            case .none:
+                withAnimation {
+                    ContentView()
+                }
+            case .loading:
+                withAnimation {
+                    LoaderView()
+                }
+            case .loaded:
+                withAnimation {
+                    Text("HeroList")
+                }
+            case .hero:
+                withAnimation {
+                    Text("HeroDetail")
+                }
+            case .error(error: let error):
+                withAnimation {
+                    ErrorView(error: error)
+                }
+        }
     }
 }
 
 #Preview {
     RootView()
+        .environmentObject(RootViewModel())
 }
