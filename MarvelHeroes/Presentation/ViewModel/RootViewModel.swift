@@ -30,7 +30,7 @@ final class RootViewModel: ObservableObject {
             .sink { completion in
                 switch completion {
                     case .failure:
-                        self.status = .error(error: "Error al cargar Heros")
+                        self.status = .error(error: "Failed to load Hero list")
                     case .finished:
                         self.status = .loaded
                 }
