@@ -68,7 +68,7 @@ final class RootViewModel: ObservableObject {
             Hero(id: 4, name: "FooBar", description: "LoremIpsum",
                  thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg"))
         ]
-        return MarvelHeros(code: 200, data: DataClass(total: 4, offset: 0, count: 4, results: heroes))
+        return MarvelHeros(code: 200, data: DataClass(offset: 0, total: 4, count: 4, results: heroes))
     }
 }
 
