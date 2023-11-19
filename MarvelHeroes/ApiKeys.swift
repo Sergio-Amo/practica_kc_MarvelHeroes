@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+enum ApiKeys: String {
+    case publicKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    case privateKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+}
