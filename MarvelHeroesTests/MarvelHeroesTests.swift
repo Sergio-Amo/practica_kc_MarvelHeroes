@@ -7,6 +7,8 @@
 
 import XCTest
 import Combine
+import SwiftUI
+import ViewInspector
 @testable import MarvelHeroes
 
 final class MarvelHeroesTests: XCTestCase {
@@ -110,4 +112,20 @@ final class MarvelHeroesTests: XCTestCase {
         
         self.waitForExpectations(timeout: 10)
     }
+    
+    func testUrlExtension() {
+        let secureURL = URL(string: "https://developer.marvel.com")!
+        let url = URL(string: "http://developer.marvel.com")!
+        let securedUrl = url.upgradeUrlScheme(url)
+        XCTAssertEqual(secureURL, securedUrl)
+    }
+    
+    func testUrlResponseExtension() {
+        let url = URL(string: "https://developer.marvel.com")!
+        let response = HTTPURLResponse(url: url, statusCode: 200, httpVersion: "HTTP/3.0", headerFields: nil)
+        
+        XCTAssertEqual(response?.getStatusCode(), 200)
+    }
+    
+
 }
