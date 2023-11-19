@@ -67,9 +67,6 @@ struct HeroView: View {
                                         comicDescription = ComicDescription(id: id, description: description)
                                     }
                                 }
-                                .sheet(item: $comicDescription, content: { data in
-                                    SerieDescriptionView(comicDescription: $comicDescription)
-                                })
                         }
                     }
                 }
@@ -105,6 +102,9 @@ struct HeroView: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .sheet(item: $comicDescription, content: { data in
+            SerieDescriptionView(comicDescription: $comicDescription)
+        })
     }
 }
 
