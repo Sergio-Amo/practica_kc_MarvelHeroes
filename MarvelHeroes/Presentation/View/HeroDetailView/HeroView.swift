@@ -37,6 +37,23 @@ struct HeroView: View {
                     .padding(8)
                 }
             })
+            
+            
+            ScrollView(.horizontal, showsIndicators: false){
+                LazyHStack{
+                    
+                    if let marvelSeries = viewModel.series,
+                       let series = marvelSeries.data?.results {
+                        ForEach(series) { serie in
+                            
+                            Text(serie.title ?? "")
+                        }
+                    }
+                    
+                }
+            }
+            
+            
             Spacer()
             Text(viewModel.hero.description ?? "unavailable")
                 .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
