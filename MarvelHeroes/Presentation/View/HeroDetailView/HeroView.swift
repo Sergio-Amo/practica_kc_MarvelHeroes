@@ -10,6 +10,8 @@ import SDWebImageSwiftUI
 
 struct HeroView: View {
     @StateObject var viewModel: HeroViewModel
+    @State var showSerieDescription = false
+    @State var description: String = ""
     
     var body: some View {
         ScrollView {
@@ -39,26 +41,66 @@ struct HeroView: View {
             })
             
             
-            ScrollView(.horizontal, showsIndicators: false){
-                LazyHStack{
-                    
-                    if let marvelSeries = viewModel.series,
-                       let series = marvelSeries.data?.results {
+            if let series = viewModel.series?.data?.results,
+               !series.isEmpty {
+                HStack {
+                    Text("Series:")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.top, 32)
+                ScrollView(.horizontal, showsIndicators: false){
+                    LazyHStack{
                         ForEach(series) { serie in
-                            
-                            Text(serie.title ?? "")
+                            SeriesCellView(serie: serie)
+                                .frame(height: 300)
+                                .frame(maxWidth: 360)
+                                .onTapGesture {
+                                    if let description = serie.description,
+                                       description.count > 0 {
+                                        self.description = description
+                                        showSerieDescription.toggle()
+                                    }
+                                }
+                                .sheet(isPresented: $showSerieDescription, content: {
+                                    if self.description.count > 0 {
+                                        SerieDescriptionView(showSerieDescription: $showSerieDescription, desciption: self.description)
+                                    }
+                                })
                         }
                     }
-                    
                 }
+                .padding(.horizontal, 4)
+            } else if viewModel.series?.data?.results == nil {
+                HStack {
+                    Text("Series:")
+                        .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+                        .bold()
+                    Spacer()
+                }
+                .padding(.top, 32)
+                HStack{
+                    ProgressView()
+                        .controlSize(.large)
+                }.frame(height: 300)
             }
             
-            
             Spacer()
-            Text(viewModel.hero.description ?? "unavailable")
-                .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
-                .font(.system(size: 21))
-                .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+            if let description = viewModel.hero.description,
+               description.count > 0 {
+                Text("Story")
+                    .font(.title)
+                    .padding()
+                    .bold()
+                Text(viewModel.hero.description ?? "unavailable")
+                    .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
+                    .font(.system(size: 21))
+                    .padding(EdgeInsets(top: 12, leading: 8, bottom: 12, trailing: 8))
+            } else {
+                Text("Story not available")
+                    .font(.title)
+            }
         }
         .navigationBarTitleDisplayMode(.inline)
     }

@@ -10,23 +10,20 @@ import Combine
 
 final class HeroViewModel: ObservableObject {
     @Published var series: MarvelSeries?
-    @Published var hero: Hero
-    @Published var status: Status
+    var hero: Hero
+    @Published var status = Status.none
     
     var suscriptors = Set<AnyCancellable>()
     
     init(hero: Hero, debug: Bool = false) {
-        self.status = .loading
         self.hero = hero
-        guard let id = hero.id else {
-            return
+        if let id = hero.id {
+            if debug {
+                getSeriesMock(from: id)
+            } else {
+                getSeries(from: id)
+            }
         }
-        if debug {
-            getSeriesMock(from: id)
-        } else {
-            getSeries(from: id)
-        }
-        self.status = .loaded
     }
     
     func getSeries(from id: Int) {
@@ -63,12 +60,12 @@ final class HeroViewModel: ObservableObject {
     
     func getSeriesDesign() -> MarvelSeries {
         let series = [
-            Serie(id: 1, title: "Foo", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg")),
-            Serie(id: 2, title: "Bar", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668", thumbnailExtension: "jpg")),
-            Serie(id: 3, title: "Baz", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/9/d0/51926fde9c18a", thumbnailExtension: "jpg")),
-            Serie(id: 4, title: "Biz", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/6/60/553a60a66f2f6", thumbnailExtension: "jpg")),
-            Serie(id: 5, title: "Baz", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/9/40/553a60e7ab48d", thumbnailExtension: "jpg")),
-            Serie(id: 6, title: "FooBar", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/a/d0/4bb4eafadecaf", thumbnailExtension: "jpg"))
+            Serie(id: 1, title: "Foo", description: nil, thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg")),
+            Serie(id: 2, title: "Bar", description: "foo bar", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/1/00/51644d6b47668", thumbnailExtension: "jpg")),
+            Serie(id: 3, title: "Baz", description: nil, thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/9/d0/51926fde9c18a", thumbnailExtension: "jpg")),
+            Serie(id: 4, title: "Biz", description: "lorem ipsum sit amet", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/6/60/553a60a66f2f6", thumbnailExtension: "jpg")),
+            Serie(id: 5, title: "Baz", description: "jhasdjk askdjaskjd auojdhajskd ajodajkg ashashd asdasd.", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/9/40/553a60e7ab48d", thumbnailExtension: "jpg")),
+            Serie(id: 6, title: "FooBar", description: "General Thunderbolt Ross spent years hunting the Hulk, but now he's become one himself! As the rampaging Red Hulk, Ross strives to reconcile the man he used to be with the monster he's becomes, smashing anything that moves along the way!", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/a/d0/4bb4eafadecaf", thumbnailExtension: "jpg"))
             
         ]
         
