@@ -18,14 +18,13 @@ struct HerosView: View {
                     ForEach(heros) { hero in
                         NavigationLink {
                             //destination
+                            HeroView(viewModel: HeroViewModel(hero: hero))
                         } label: {
                             HerosRowView(hero: hero)
                                 .frame(height: 256)
                         }
                     }
                 }
-                
-                
                 
                 if let marvel = rootViewModel.marvel,
                    let total = marvel.data?.total,
@@ -47,6 +46,7 @@ struct HerosView: View {
             }
             .frame( maxWidth: .infinity)
             .listStyle(GroupedListStyle())
+            .navigationTitle("Heros")
         }
     }
 }

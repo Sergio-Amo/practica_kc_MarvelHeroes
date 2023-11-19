@@ -12,7 +12,7 @@
 		2735984A2B08D2A400396698 /* NetworkMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273598492B08D2A400396698 /* NetworkMethods.swift */; };
 		2735984C2B08DA1700396698 /* Extension+URLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735984B2B08DA1700396698 /* Extension+URLResponse.swift */; };
 		2735984E2B09033900396698 /* HerosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735984D2B09033900396698 /* HerosView.swift */; };
-		273598502B09036600396698 /* HerosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735984F2B09036600396698 /* HerosViewModel.swift */; };
+		273598502B09036600396698 /* HeroViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735984F2B09036600396698 /* HeroViewModel.swift */; };
 		273598522B090EC500396698 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273598512B090EC500396698 /* RootView.swift */; };
 		273598552B09174600396698 /* LoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273598542B09174600396698 /* LoaderView.swift */; };
 		273598572B091C9F00396698 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273598562B091C9F00396698 /* ErrorView.swift */; };
@@ -27,10 +27,10 @@
 		27DC88A32B07E0BF0082F307 /* MarvelHeroesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88A22B07E0BF0082F307 /* MarvelHeroesUITests.swift */; };
 		27DC88A52B07E0BF0082F307 /* MarvelHeroesUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88A42B07E0BF0082F307 /* MarvelHeroesUITestsLaunchTests.swift */; };
 		27DC88C62B07E8950082F307 /* RootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88C52B07E8950082F307 /* RootViewModel.swift */; };
-		27DC88C82B07F2BB0082F307 /* Comic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88C72B07F2BB0082F307 /* Comic.swift */; };
 		27DC88CA2B07F5E70082F307 /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88C92B07F5E70082F307 /* ApiKeys.swift */; };
 		27DC88CC2B07F9090082F307 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DC88CB2B07F9090082F307 /* Network.swift */; };
 		27EFB0442B09582800E3E95D /* MarvelSeries.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFB0432B09582800E3E95D /* MarvelSeries.swift */; };
+		27EFB0462B096CB200E3E95D /* HeroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27EFB0452B096CB200E3E95D /* HeroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +56,7 @@
 		273598492B08D2A400396698 /* NetworkMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMethods.swift; sourceTree = "<group>"; };
 		2735984B2B08DA1700396698 /* Extension+URLResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+URLResponse.swift"; sourceTree = "<group>"; };
 		2735984D2B09033900396698 /* HerosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosView.swift; sourceTree = "<group>"; };
-		2735984F2B09036600396698 /* HerosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HerosViewModel.swift; sourceTree = "<group>"; };
+		2735984F2B09036600396698 /* HeroViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroViewModel.swift; sourceTree = "<group>"; };
 		273598512B090EC500396698 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		273598542B09174600396698 /* LoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderView.swift; sourceTree = "<group>"; };
 		273598562B091C9F00396698 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -74,10 +74,10 @@
 		27DC88A22B07E0BF0082F307 /* MarvelHeroesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesUITests.swift; sourceTree = "<group>"; };
 		27DC88A42B07E0BF0082F307 /* MarvelHeroesUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelHeroesUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27DC88C52B07E8950082F307 /* RootViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewModel.swift; sourceTree = "<group>"; };
-		27DC88C72B07F2BB0082F307 /* Comic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comic.swift; sourceTree = "<group>"; };
 		27DC88C92B07F5E70082F307 /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		27DC88CB2B07F9090082F307 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		27EFB0432B09582800E3E95D /* MarvelSeries.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelSeries.swift; sourceTree = "<group>"; };
+		27EFB0452B096CB200E3E95D /* HeroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,13 +115,13 @@
 			path = Tools;
 			sourceTree = "<group>";
 		};
-		2735985F2B09431000396698 /* Heros */ = {
+		2735985F2B09431000396698 /* PrincipalView */ = {
 			isa = PBXGroup;
 			children = (
 				2735984D2B09033900396698 /* HerosView.swift */,
 				273598582B0931EF00396698 /* HerosRowView.swift */,
 			);
-			path = Heros;
+			path = PrincipalView;
 			sourceTree = "<group>";
 		};
 		27DC887A2B07E0BD0082F307 = {
@@ -231,7 +231,6 @@
 		27DC88B62B07E1890082F307 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				27DC88C72B07F2BB0082F307 /* Comic.swift */,
 				273598452B08D04800396698 /* StatusModel.swift */,
 				273598602B0950BA00396698 /* MarvelHeros.swift */,
 				27EFB0432B09582800E3E95D /* MarvelSeries.swift */,
@@ -268,7 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				27DC88C52B07E8950082F307 /* RootViewModel.swift */,
-				2735984F2B09036600396698 /* HerosViewModel.swift */,
+				2735984F2B09036600396698 /* HeroViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -276,9 +275,10 @@
 		27DC88BB2B07E1A90082F307 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				273598532B09173B00396698 /* Tools */,
-				2735985F2B09431000396698 /* Heros */,
 				273598512B090EC500396698 /* RootView.swift */,
+				273598532B09173B00396698 /* Tools */,
+				2735985F2B09431000396698 /* PrincipalView */,
+				27EFB0452B096CB200E3E95D /* HeroView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -423,7 +423,6 @@
 				2735984A2B08D2A400396698 /* NetworkMethods.swift in Sources */,
 				273598572B091C9F00396698 /* ErrorView.swift in Sources */,
 				273598522B090EC500396698 /* RootView.swift in Sources */,
-				27DC88C82B07F2BB0082F307 /* Comic.swift in Sources */,
 				27DC88CA2B07F5E70082F307 /* ApiKeys.swift in Sources */,
 				2735985E2B09398300396698 /* Extension+URL.swift in Sources */,
 				27DC88C62B07E8950082F307 /* RootViewModel.swift in Sources */,
@@ -431,11 +430,12 @@
 				273598592B0931EF00396698 /* HerosRowView.swift in Sources */,
 				273598462B08D04800396698 /* StatusModel.swift in Sources */,
 				2735984C2B08DA1700396698 /* Extension+URLResponse.swift in Sources */,
-				273598502B09036600396698 /* HerosViewModel.swift in Sources */,
+				273598502B09036600396698 /* HeroViewModel.swift in Sources */,
 				27DC88872B07E0BD0082F307 /* MarvelHeroesApp.swift in Sources */,
 				273598612B0950BA00396698 /* MarvelHeros.swift in Sources */,
 				273598482B08D1B800396698 /* Constants.swift in Sources */,
 				27EFB0442B09582800E3E95D /* MarvelSeries.swift in Sources */,
+				27EFB0462B096CB200E3E95D /* HeroView.swift in Sources */,
 				273598552B09174600396698 /* LoaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

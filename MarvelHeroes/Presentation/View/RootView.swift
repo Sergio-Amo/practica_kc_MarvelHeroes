@@ -25,10 +25,6 @@ struct RootView: View {
                 withAnimation {
                     HerosView()
                 }
-            case .hero:
-                withAnimation {
-                    Text("HeroDetail")
-                }
             case .error(error: let error):
                 withAnimation {
                     ErrorView(error: error)

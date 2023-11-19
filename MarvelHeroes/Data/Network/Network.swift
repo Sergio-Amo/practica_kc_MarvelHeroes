@@ -21,9 +21,20 @@ struct Network {
 
     func getCharactersRequest(offset: Int = 0) -> URLRequest {
         let offset = "&offset=\(offset)"
-        // BaseURL + Endpoint + Limit + Auth
+        // BaseURL + Endpoint + Limit + offset + Auth
         let urlCad = NetworkConstants.baseUrl.rawValue+NetworkConstants.charactersEndPoint.rawValue+urlParams.limit.rawValue+offset+"&"+authenticationParams
-        var request: URLRequest = URLRequest(url: URL(string: urlCad)!)
+        return createRequest(from: urlCad)
+    }
+    
+    func getCharacterSeriesRequest(id: Int) -> URLRequest {
+        let id = "&characters=\(id)"
+        // BaseURL + Endpoint + Limit + id + Auth
+        let urlCad = NetworkConstants.baseUrl.rawValue+NetworkConstants.seriesEndPoint.rawValue+urlParams.limit.rawValue+id+"&"+authenticationParams
+        return createRequest(from: urlCad)
+    }
+    
+    func createRequest(from urlString: String) -> URLRequest {
+        var request: URLRequest = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = HTTPMethods.get
         request.addValue(HTTPMethods.content, forHTTPHeaderField: "Content-type")
         return request
