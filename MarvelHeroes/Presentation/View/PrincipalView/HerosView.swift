@@ -56,6 +56,7 @@ struct HerosView: View {
                 }
 
             }
+            .id(0)
             .frame( maxWidth: .infinity)
             .listStyle(GroupedListStyle())
             .navigationTitle("Heros")

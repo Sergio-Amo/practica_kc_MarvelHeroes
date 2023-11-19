@@ -186,5 +186,84 @@ final class MarvelHeroesTests: XCTestCase {
         XCTAssertEqual(try sysImg.image().actualImage().name(), "chevron.compact.down")
         
     }
+    
+    func testHerosView() throws {
+        let view = HerosView()
+            .environmentObject(RootViewModel(debug: true))
+
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //list
+        let list = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(list)
+        
+    }
+    
+    func testErrorView() throws {
+        let view = ErrorView(error: "409")
+            .environmentObject(RootViewModel())
+
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //warningStack
+        let warningStack = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(warningStack)
+        
+        //buttonStack
+        let buttonStack = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(buttonStack)
+        
+    }
+    
+    func testHerosRowView() throws {
+        let view = HerosRowView(
+            hero: Hero(id: 1, name: "Foo", description: "LoremIpsum",
+                       thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: "jpg")))
+
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //ZStack
+        let zStack = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(zStack)
+        
+        //heroName
+        let heroName = try view.inspect().find(viewWithId: 1)
+        XCTAssertNotNil(heroName)
+        XCTAssertEqual(try heroName.text().string(), "Foo")
+        
+    }
+    
+    func testSerieDescriptionView() throws {
+        let view = SerieDescriptionView(comicDescription: .constant(ComicDescription(id: 1, description: "General Thunderbolt Ross ...")))
+
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //scroll
+        let scroll = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(scroll)
+        
+        //button
+        let button = try view.inspect().find(viewWithId: 1)
+        XCTAssertNotNil(button)
+        
+        //heroDescription
+        let heroDescription = try view.inspect().find(viewWithId: 2)
+        XCTAssertNotNil(heroDescription)
+        
+        XCTAssertEqual(try heroDescription.text().string(), "General Thunderbolt Ross ...")
+        
+    }
 }
 

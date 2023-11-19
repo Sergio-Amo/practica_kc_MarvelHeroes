@@ -36,6 +36,7 @@ struct ErrorView: View {
                 .font(.subheadline)
                 .padding()
         }
+        .id(0)
         Spacer()
         VStack {
             Button(action: {
@@ -52,6 +53,7 @@ struct ErrorView: View {
                     
             })
         }
+        .id(1)
         .padding()
     }
 }

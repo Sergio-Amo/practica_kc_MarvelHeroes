@@ -173,7 +173,6 @@
 		27DC88B12B07E16B0082F307 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				27DC88B32B07E1760082F307 /* Local */,
 				27DC88B22B07E1700082F307 /* Network */,
 			);
 			path = Data;
@@ -187,13 +186,6 @@
 				273598492B08D2A400396698 /* NetworkMethods.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		27DC88B32B07E1760082F307 /* Local */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Local;
 			sourceTree = "<group>";
 		};
 		27DC88B42B07E17D0082F307 /* Domain */ = {

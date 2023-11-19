@@ -33,11 +33,13 @@ struct HerosRowView: View {
                         .padding()
                         .background(.white)
                         .cornerRadius(8)
+                        .id(1)
                 }
                 .padding()
                 Spacer()
             }
         }
+        id(0)
     }
 }
 

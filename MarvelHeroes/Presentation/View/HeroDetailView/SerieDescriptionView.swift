@@ -22,10 +22,12 @@ struct SerieDescriptionView: View {
                 if let description = comicDescription?.description {
                     Text(description)
                         .font(.title3)
+                        .id(2)
                 }
             }
             .padding()
         }
+        .id(0)
         Button(action: {
             comicDescription = nil
         }, label: {
@@ -33,6 +35,7 @@ struct SerieDescriptionView: View {
                 .font(.title2)
                 .padding()
         })
+        .id(1)
     }
 }
 
