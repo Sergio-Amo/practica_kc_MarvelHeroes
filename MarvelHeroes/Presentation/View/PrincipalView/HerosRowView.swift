@@ -28,7 +28,7 @@ struct HerosRowView: View {
                 HStack{
                     Spacer()
                     Text(hero.name ?? "")
-                        .font(.title)
+                        .font(.title3)
                         .bold()
                         .padding()
                         .background(.white)
