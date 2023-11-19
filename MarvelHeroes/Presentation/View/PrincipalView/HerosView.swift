@@ -29,16 +29,28 @@ struct HerosView: View {
                 if let marvel = rootViewModel.marvel,
                    let total = marvel.data?.total,
                    let offset = marvel.data?.offset,
-                   let count = marvel.data?.count,
-                   total > offset + count {
+                   let count = marvel.data?.count {
                     
                     HStack {
+                        if offset >= 100 {
+                            Button(action: {
+                                rootViewModel.getHeroes(offset: offset - 100)
+                            }, label: {
+                                Text("< Prev page")
+                                    .font(.title3)
+                                    .padding(8)
+                            })
+                        }
                         Spacer()
-                        Button(action: {
-                            rootViewModel.getHeroes(offset: offset + 100)
-                        }, label: {
-                            Text("Next page >")
-                        })
+                        if total > offset + count {
+                            Button(action: {
+                                rootViewModel.getHeroes(offset: offset + 100)
+                            }, label: {
+                                Text("Next page >")
+                                    .font(.title3)
+                                    .padding(8)
+                            })
+                        }
                     }
                     
                 }
@@ -47,6 +59,35 @@ struct HerosView: View {
             .frame( maxWidth: .infinity)
             .listStyle(GroupedListStyle())
             .navigationTitle("Heros")
+            .toolbar {
+                if let marvel = rootViewModel.marvel,
+                   let total = marvel.data?.total,
+                   let offset = marvel.data?.offset,
+                   let count = marvel.data?.count {
+                    ToolbarItem(placement: .navigationBarLeading) {
+                        if offset >= 100 {
+                            Button(action: {
+                                rootViewModel.getHeroes(offset: offset - 100)
+                            }, label: {
+                                Text("< Prev page")
+                                    .font(.title3)
+                                    .padding(8)
+                            })
+                        }
+                    }
+                    ToolbarItem{
+                        if total > offset + count {
+                            Button(action: {
+                                rootViewModel.getHeroes(offset: offset + 100)
+                            }, label: {
+                                Text("Next page >")
+                                    .font(.title3)
+                                    .padding(8)
+                            })
+                        }
+                    }
+                }
+            }
         }
     }
 }

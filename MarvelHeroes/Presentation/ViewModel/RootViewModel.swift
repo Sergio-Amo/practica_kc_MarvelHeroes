@@ -73,7 +73,7 @@ Nunc pulvinar sapien et ligula. Senectus et netus et malesuada fames ac turpis. 
                     ,
                  thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg"))
         ]
-        return MarvelHeros(code: 200, data: DataClass(offset: 0, total: 4, count: 4, results: heroes))
+        return MarvelHeros(code: 200, data: DataClass(offset: 100, total: 1000, count: 4, results: heroes))
     }
 }
 
