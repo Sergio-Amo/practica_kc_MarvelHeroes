@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SerieDescriptionView: View {
-    @Binding var showSerieDescription: Bool
-    var desciption: String
+    @Binding var comicDescription: ComicDescription?
     
     var body: some View {
         ScrollView {
@@ -20,13 +19,15 @@ struct SerieDescriptionView: View {
                     Spacer()
                 }
                 .padding(.vertical, 16)
-                Text(desciption)
-                    .font(.title3)
+                if let description = comicDescription?.description {
+                    Text(description)
+                        .font(.title3)
+                }
             }
             .padding()
         }
         Button(action: {
-            showSerieDescription.toggle()
+            comicDescription = nil
         }, label: {
             Text("Back")
                 .font(.title2)
@@ -36,6 +37,5 @@ struct SerieDescriptionView: View {
 }
 
 #Preview {
-    SerieDescriptionView(showSerieDescription: .constant(true), desciption: "General Thunderbolt Ross spent years hunting the Hulk, but now he's become one himself! As the rampaging Red Hulk, Ross strives to reconcile the man he used to be with the monster he's becomes, smashing anything that moves along the way!")
+    SerieDescriptionView(comicDescription: .constant(ComicDescription(id: 1, description: "General Thunderbolt Ross spent years hunting the Hulk, but now he's become one himself! As the rampaging Red Hulk, Ross strives to reconcile the man he used to be with the monster he's becomes, smashing anything that moves along the way!")))
 }
-

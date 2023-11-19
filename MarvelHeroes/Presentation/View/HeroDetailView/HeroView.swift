@@ -8,10 +8,14 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+struct ComicDescription: Identifiable {
+    var id: Int
+    var description: String
+}
+
 struct HeroView: View {
     @StateObject var viewModel: HeroViewModel
-    @State var showSerieDescription = false
-    @State var description: String = ""
+    @State private var comicDescription: ComicDescription?
     
     var body: some View {
         ScrollView {
@@ -58,15 +62,13 @@ struct HeroView: View {
                                 .frame(maxWidth: 360)
                                 .onTapGesture {
                                     if let description = serie.description,
+                                       let id = serie.id,
                                        description.count > 0 {
-                                        self.description = description
-                                        showSerieDescription.toggle()
+                                        comicDescription = ComicDescription(id: id, description: description)
                                     }
                                 }
-                                .sheet(isPresented: $showSerieDescription, content: {
-                                    if self.description.count > 0 {
-                                        SerieDescriptionView(showSerieDescription: $showSerieDescription, desciption: self.description)
-                                    }
+                                .sheet(item: $comicDescription, content: { data in
+                                    SerieDescriptionView(comicDescription: $comicDescription)
                                 })
                         }
                     }
