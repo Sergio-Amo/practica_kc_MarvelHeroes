@@ -50,8 +50,12 @@ struct SeriesCellView: View {
                                 .padding(14)
                                 .foregroundStyle(.white)
                                 .shadow(radius: 8)
+                                .background(.black.opacity(0.12))
+                                .cornerRadius(20)
+                            
                             Spacer()
                         }
+                        .padding(1)
                     }
                 }
             })
