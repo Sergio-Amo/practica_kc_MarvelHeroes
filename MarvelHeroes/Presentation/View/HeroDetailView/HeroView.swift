@@ -8,6 +8,7 @@
 import SwiftUI
 import SDWebImageSwiftUI
 
+// Item for modal
 struct ComicDescription: Identifiable {
     var id: Int
     var description: String
@@ -29,6 +30,7 @@ struct HeroView: View {
                         .transition(.fade(duration: 0.5)) // Fade Transition with duration
                         .cornerRadius(15)
                         .scaledToFit()
+                        .id(3)
                 }
                 VStack{
                     HStack{
@@ -39,10 +41,12 @@ struct HeroView: View {
                             .padding(10)
                             .background(.white.opacity(0.85))
                             .cornerRadius(8)
+                            .id(4)
                     }
                     .padding(8)
                 }
             })
+            .id(1)
             
             
             if let series = viewModel.series?.data?.results,
@@ -70,6 +74,7 @@ struct HeroView: View {
                         }
                     }
                 }
+                .id(2)
                 .padding(.horizontal, 4)
             } else if viewModel.series?.data?.results == nil {
                 HStack {
@@ -101,6 +106,7 @@ struct HeroView: View {
                     .font(.title)
             }
         }
+        .id(0)
         .navigationBarTitleDisplayMode(.inline)
         .sheet(item: $comicDescription, content: { data in
             SerieDescriptionView(comicDescription: $comicDescription)

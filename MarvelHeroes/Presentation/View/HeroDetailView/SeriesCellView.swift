@@ -26,6 +26,7 @@ struct SeriesCellView: View {
                         .transition(.fade(duration: 0.5)) // Fade Transition with duration
                         .cornerRadius(15)
                         .scaledToFit()
+                        .id(1)
                 }
                 VStack{
                     HStack{
@@ -36,6 +37,7 @@ struct SeriesCellView: View {
                             .padding(12)
                             .background(.white)
                             .cornerRadius(8)
+                            .id(2)
                     }
                     .padding(8)
                     
@@ -52,6 +54,7 @@ struct SeriesCellView: View {
                                 .shadow(radius: 8)
                                 .background(.black.opacity(0.12))
                                 .cornerRadius(20)
+                                .id(3)
                             
                             Spacer()
                         }
@@ -59,6 +62,7 @@ struct SeriesCellView: View {
                     }
                 }
             })
+            .id(0)
         }
     }
 }

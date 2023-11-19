@@ -127,5 +127,64 @@ final class MarvelHeroesTests: XCTestCase {
         XCTAssertEqual(response?.getStatusCode(), 200)
     }
     
-
+    func testHeroView() throws {
+        let hero = Hero(id: 1, name: "Foo", description: "LoremIpsum",
+                        thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784", thumbnailExtension: "jpg"))
+        let view = HeroView(viewModel: HeroViewModel(hero: hero, debug: true))
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //ScrollView
+        let scroll = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(scroll)
+        
+        //HScroll
+        let hScroll = try view.inspect().find(viewWithId: 2)
+        XCTAssertNotNil(hScroll)
+        
+        //Zstack
+        let zstack = try view.inspect().find(viewWithId: 1)
+        XCTAssertNotNil(zstack)
+        
+        //WebImage
+        let webImg = try view.inspect().find(viewWithId: 3)
+        XCTAssertNotNil(webImg)
+        
+        //hero name
+        let name = try view.inspect().find(viewWithId: 4)
+        XCTAssertNotNil(name)
+        
+        XCTAssertEqual(try name.text().string(), "Foo")
+    }
+    
+    func testSerieCellView() throws {
+        let view = SeriesCellView(serie: Serie(id: 1, title: "Foo", description: "Desc", thumbnail: Thumbnail(path: "http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available", thumbnailExtension: "jpg")))
+        
+        XCTAssertNotNil(view)
+        
+        let itemCount = try view.inspect().count
+        XCTAssertEqual(itemCount, 1)
+        
+        //zStack
+        let zStack = try view.inspect().find(viewWithId: 0)
+        XCTAssertNotNil(zStack)
+        
+        //WebImage
+        let webImg = try view.inspect().find(viewWithId: 1)
+        XCTAssertNotNil(webImg)
+        
+        //serie title
+        let title = try view.inspect().find(viewWithId: 2)
+        XCTAssertNotNil(title)
+        XCTAssertEqual(try title.text().string(), "Foo")
+        
+        //SystemImage
+        let sysImg = try view.inspect().find(viewWithId: 3)
+        XCTAssertNotNil(sysImg)
+        XCTAssertEqual(try sysImg.image().actualImage().name(), "chevron.compact.down")
+        
+    }
 }
+
